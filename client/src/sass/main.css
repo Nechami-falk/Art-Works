@@ -1,0 +1,210 @@
+.minh-900 {
+  max-width: 100%;
+  margin-bottom: 200px;
+}
+
+.page-header {
+  color: #0d0d61;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.div-home-image {
+  margin: 30 auto !important;
+}
+
+.card {
+  margin: 30px auto;
+  border: 2px solid #0d0d61 !important;
+}
+
+.card-img-top {
+  height: 200px;
+}
+
+.card-title {
+  color: #0d0d6d;
+}
+
+.my-footer {
+  bottom: -10px;
+  position: fixed;
+  margin-top: 10px;
+  background-color: #0d0d61;
+  color: #ffc400;
+}
+
+.btn-nav {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+@media (max-width: 992px) {
+  .css-search-sm {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .css-search-sm {
+    display: block;
+  }
+}
+
+@media (min-width: 700px) {
+  .button-nav {
+    margin-top: -40px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .button-nav {
+    margin-top: -30px !important;
+  }
+}
+
+.navbar-light .navbar-toggler {
+  color: #0d0d61 !important;
+}
+
+.navbar-light .navbar-toggler-icon {
+  color: #0d0d61 !important;
+}
+
+@media (min-width: 992px) {
+  .css-search {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .css-search {
+    display: block;
+  }
+}
+
+@media (min-width: 700px) {
+  .img-fluid {
+    margin: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .img-fluid {
+    max-width: 70% !important;
+    height: 100px !important;
+    margin: 30px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .img-fluid {
+    padding: 50px;
+  }
+}
+
+/* cart bootstrap*/
+.table > tbody > tr > td, .table > tfoot > tr > td {
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 600px) {
+  table#cart tbody td .form-control {
+    width: 20%;
+    display: inline !important;
+  }
+  .actions .btn {
+    width: 36%;
+    margin: 1.5em 0;
+  }
+  .actions .btn-info {
+    float: left;
+  }
+  .actions .btn-danger {
+    float: right;
+  }
+  table#cart thead {
+    display: none;
+  }
+  table#cart tbody td {
+    display: block;
+    padding: .6rem;
+    min-width: 320px;
+  }
+  table#cart tbody tr td:first-child {
+    background: #333;
+    color: #fff;
+  }
+  table#cart tbody td:before {
+    content: attr(data-th);
+    font-weight: bold;
+    display: inline-block;
+    width: 8rem;
+  }
+  table#cart tfoot td {
+    display: block;
+  }
+  table#cart tfoot td .btn {
+    display: block;
+  }
+}
+
+/* input  counter product */
+/* hide arrows in input number product */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: #eee;
+}
+
+.no-outline:focus {
+  outline: none;
+}
+
+.btn-prod {
+  background-color: #0d0d61;
+  color: #ffc400;
+}
+
+.card-text {
+  color: #0d0d6d;
+}
+
+.card-img-top {
+  height: 200px;
+}
+
+.card-title {
+  color: #0d0d6d;
+}
+
+.btnOrd {
+  border: 0px;
+  background-color: #c9c5c5;
+  margin: 0px;
+}
+
+.btnOrd2 {
+  background-color: #f3eded;
+}
+
+.my-btn {
+  background-color: #0d0d61;
+  color: #ffc400;
+  margin: 0 auto;
+  display: block;
+}
+/*# sourceMappingURL=main.css.map */
