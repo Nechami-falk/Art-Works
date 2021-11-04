@@ -1,0 +1,25 @@
+.btn-nav{
+    font-weight: bold;
+    margin-left: 10px;
+    
+}
+
+@media(max-width:992px){
+    .css-search-sm{
+        display:none;
+    }
+}
+
+
+@media (min-width:700px){
+    .button-nav{
+   margin-top:-40px !important;
+    }
+}
+
+
+@media (max-width:700px){
+    .button-nav{
+        margin-top:-30px !important;
+    }
+}
