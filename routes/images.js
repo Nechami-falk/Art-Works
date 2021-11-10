@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const upload = require('../middleware/upload');
 
+
 router.get('/', (req, res)=> {
     
     const uploadsDirectory = path.join('uploads');
