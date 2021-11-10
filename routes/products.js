@@ -42,6 +42,7 @@ router.get('/:id', authAdmin, async (req, res) => {
 });
 
 
+
 router.delete('/:id', authAdmin, async(req, res)=>{
     const product = await Product.findOneAndRemove({_id:req.params.id });
     if ( ! product ) return res.status(404).send('מוצר לא קיים במערכת');
