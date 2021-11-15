@@ -11,8 +11,8 @@ const storage = multer.diskStorage({
         cb(null, 'uploads');
     }, 
     filename: function( req, file, cb ){
-         const price = req.body.price;
-        cb (null, price);
+        const data = JSON.parse(req.body.data)
+        cb (null, data.catalogNumber + '.png');
     }
 });
 

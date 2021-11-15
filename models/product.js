@@ -44,15 +44,10 @@ const productSchema = new mongoose.Schema({
         maxlenght:100,
         required: true,
     },
-    image:{
-        type:String
-    },
      createdAt:{
         type:Date, default :Date.now
-    },
-    image:{
-        type:String,
     }
+    
     
 });
 
@@ -63,7 +58,6 @@ function validateProduct(product){
         name:Joi.string().min(2).max(200).required(),
         description: Joi.string().min(2).max(500),
         price: Joi.number().min(1).max(1000000).required(),
-        image: Joi.string().min(11).max(1000),
         sale: Joi.number().min(1).max(1000000),
         category:Joi.string().min(1).max(100),
         age:Joi.string(),

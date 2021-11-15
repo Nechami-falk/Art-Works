@@ -7,7 +7,7 @@ const auth = require('./routes/auth');
 const products= require('./routes/products');
 const images = require('./routes/images');
 const cors = require('cors');
-
+const path = require('path');
 
 
 mongoose.connect('mongodb://localhost/tahasuka_rest_api')
@@ -15,8 +15,10 @@ mongoose.connect('mongodb://localhost/tahasuka_rest_api')
 
 app.use(cors());
 app.use( express.json());
-app.use(express.static('uploads'));
+app.use('/uploads/action', express.static(path.join(__dirname, 'uploads/action')));
 
+
+app.use(express.static('uploads'))
 app.use('/api/auth', auth)
 app.use('/api/users', users)
 app.use('/api/products',products)

@@ -80,7 +80,7 @@ router.post('/', authAdmin, async(req,res) => {
             sale: req.body.sale,
             age: req.body.age,
             category: req.body.category,
-            image:req.body.image
+           
         });
     await product.save();
     res.send(product);

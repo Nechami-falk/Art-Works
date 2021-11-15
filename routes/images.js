@@ -3,7 +3,8 @@ const router = express.Router();
 const path = require('path');
 const fs = require('fs');
 const upload = require('../middleware/upload');
-
+const { Product, validateProduct } = require('../models/product');
+const authAdmin = require('../middleware/authAdmin');
 
 router.get('/', (req, res)=> {
     
@@ -19,11 +20,44 @@ router.get('/', (req, res)=> {
     })
 });
 
-router.post ('/', upload.single('image'), async(req, res) => {
-    const image = req.file.path;
-    const data= req.body.data;
-    console.log(data);
-    res.json({ msg :' image successfully created'})
+router.post ('/', authAdmin, upload.single('image'), async(req, res) => {
+    console.log("hi");
+    
+    const data = JSON.parse(req.body.data);
+    console.log('data', data);
+    /* const image = req.file.path; */
+    console.log(data.name);
+    
+    const { error } = validateProduct(data);
+    if (error) return res.status(400).send(error.details[0].message);
+    console.log(error);
+    
+    try{
+    let prod = await Product.findOne({ catalogNumber: req.body.catalogNumber});
+    if (prod) return res.status(409).send();
+    console.log(req.body.data.name);
+        let product = new Product(
+        {
+            name:data.name,
+            tags:data.tags,
+            description:data.description,
+            price:data.price,
+            catalogNumber:data.catalogNumber,
+            sale:data.sale,
+            age:data.age,
+            category:data.category,
+           
+        });
+    await product.save();
+    res.send(product);
+    console.log("success");
+    }
+    catch(e){
+        console.log('error save product:', e);
+        res.status(500).send(e.massege);
+    }
+
+    
     
 });
 
