@@ -30,12 +30,13 @@ router.post ('/', authAdmin, upload.single('image'), async(req, res) => {
     
     const { error } = validateProduct(data);
     if (error) return res.status(400).send(error.details[0].message);
-    console.log(error);
+    console.log("e", error);
+    console.log(data.catalogNumber);
     
     try{
-    let prod = await Product.findOne({ catalogNumber: req.body.catalogNumber});
+    let prod = await Product.findOne({ catalogNumber: data.catalogNumber});
     if (prod) return res.status(409).send();
-    console.log(req.body.data.name);
+    console.log("r", req.body.name);
         let product = new Product(
         {
             name:data.name,
@@ -53,8 +54,7 @@ router.post ('/', authAdmin, upload.single('image'), async(req, res) => {
     console.log("success");
     }
     catch(e){
-        console.log('error save product:', e);
-        res.status(500).send(e.massege);
+        res.status(500).send();
     }
 
     

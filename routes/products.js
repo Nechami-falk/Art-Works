@@ -35,23 +35,34 @@ router.get('/search', async (req, res)=> {
 
 
 router.get('/:id', authAdmin, async (req, res) => {
+    try{
     const product = await Product.findOne({_id:req.params.id});
     if( ! product ) return res.status(404).send('מוצר לא קיים');
 
     res.send(product);
+    }
+    catch(ex){
+        res.status(404).send('לא נמצא מוצר מתאים')
+    }
 });
 
 
 
 router.delete('/:id', authAdmin, async(req, res)=>{
+    try{
     const product = await Product.findOneAndRemove({_id:req.params.id });
     if ( ! product ) return res.status(404).send('מוצר לא קיים במערכת');
     res.send (product);
+    }
+    catch(ex){
+        res.status(404).send('לא נמצא מוצר מתאים')
+    }
 }); 
 
 
 
 router.put('/:id', authAdmin, async (req, res) => {
+    try{
     const { error} = validateProduct(req.body);
     if(error) return res.status(400).send(error.details[0].message);
 
@@ -59,9 +70,13 @@ router.put('/:id', authAdmin, async (req, res) => {
     if( ! product) return res.status(404).send('מוצר  לא  קיים');
 
     res.send(product);
+    }
+    catch(ex){
+        res.status(400).send('לא נמצא מוצר  מתאים')
+    }
 });
 
-
+/* 
 router.post('/', authAdmin, async(req,res) => {
     const { error } = validateProduct(req.body);
     if (error) return res.status(400).send(error.details[0].message);
@@ -90,7 +105,7 @@ router.post('/', authAdmin, async(req,res) => {
         res.status(500).send(e.massege);
     }
 });
-
+ */
 
 
 module.exports = router;
