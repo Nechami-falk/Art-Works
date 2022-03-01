@@ -22,13 +22,14 @@ import ButtonNav from './comps/buttonNav';
 import Product from './comps/product';
 import ShowProduct from './comps/showProduct';
 import Cart from './comps/cart';
+import { toast } from 'react-toastify';
 import NavBar from './comps/navbar';
 import Page404 from './comps/page404';
-import { getProduct } from './services/productService';
 import http from './services/httpService';
 
 
 class App extends Component {
+
 
   state={
     data:[]
@@ -41,17 +42,21 @@ class App extends Component {
     const admin = userService.getCurrentAdmin();
     this.setState({admin});
 
-    getProduct()
-
+    this.getProducts();
+    this.getMassege();
   }
 
-  getProduct = async ()=>{
+  getProducts = async ()=>{
     let product = await http.get('http://localhost:8181/data/product');
     this.setState({data:product});
       
     
   }
 
+  getMassege = () =>{
+    toast(`!לקוח יקר שים לב
+     כרגע אין שרות משלוחים`)
+  }
 
   render (){
     
